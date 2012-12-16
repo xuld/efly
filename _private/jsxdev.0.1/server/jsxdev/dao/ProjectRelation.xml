@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<map>
+
+<!--
+Name	Code	Data Type	    Length  Precision	Primary	Foreign Key	Mandatory
+pid	    pid	    bigint			        TRUE	TRUE	TRUE
+uid	    uid	    bigint			        TRUE	TRUE	TRUE
+weight	weight	tinyint			        FALSE	FALSE	TRUE
+-->
+
+    <new>
+        INSERT INTO 
+			project_relation 
+        (
+            pid,
+            uid,
+            weight
+        )
+		VALUES (
+			{pid}, 
+			{uid}, 
+			{weight}
+		)
+    </new>
+
+    <rm>
+        DELETE FROM 
+			project_relation 
+		<if prepend="WHERE">
+			<if name="pid" prepend="AND">pid = {pid}</if>
+			<if name="uid" prepend="AND">uid = {uid}</if>
+		</if>
+    </rm>
+
+    <set>
+		UPDATE 
+			project_relation 
+		SET 
+			weight = {weight}
+		<if prepend="WHERE">
+			<if name="pid" prepend="AND">pid = {pid}</if>
+			<if name="uid" prepend="AND">uid = {uid}</if>
+		</if>
+    </set>
+
+    <get>
+		SELECT 
+			* 
+		FROM 
+			project_relation
+		<if prepend="WHERE">
+			<if name="pid" prepend="AND">pid = {pid}</if>
+			<if name="uid" prepend="AND">uid = {uid}</if>
+			<if name="weight" prepend="AND">weight = {weight}</if>
+		</if>
+    </get>
+
+    <rmAll>
+        DELETE FROM
+	        project_relation
+        WHERE
+            <if name="uid">uid = {uid} AND</if>
+	        pid IN 
+	        (
+		        SELECT
+			        id
+		        FROM
+			        project
+		        WHERE
+			        id = {pid} OR top = {pid}
+	        )
+    </rmAll>
+
+    <rmMulti>
+        DELETE FROM
+	        project_relation
+        WHERE
+            <if name="uid">pid = {pid} AND</if>
+	        uid IN (<join name="uids" value="," />)
+    </rmMulti>
+
+    <newByUserName>
+        INSERT INTO 
+			project_relation
+        SELECT {pid}, id, {weight} FROM user WHERE name = {name}
+    </newByUserName>
+    
+</map>

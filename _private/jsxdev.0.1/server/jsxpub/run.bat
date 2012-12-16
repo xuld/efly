@@ -1,0 +1,1 @@
+cmd /k node ../Jsx/Jsx.js jsx_pub/Main.js

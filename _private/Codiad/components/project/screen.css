@@ -1,0 +1,5 @@
+#project-list {
+    max-height: 300px;
+    overflow: auto;
+    margin: 15px 0;
+}

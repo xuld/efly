@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<map>
+
+<!--
+Name	    Code	    Data Type	        Length	Precision	Primary	Foreign Key	Mandatory
+id	        id	        bigint			            TRUE	FALSE	TRUE
+name	    name	    varchar(50)	        50		FALSE	FALSE	TRUE
+alias       alias	    varchar(50)	        50		FALSE	FALSE	TRUE
+email	    email	    varchar(50)	        50		FALSE	FALSE	TRUE
+password	password	varchar(50)	        50		FALSE	FALSE	TRUE
+disable	    disable	    bit			                FALSE	FALSE	TRUE
+time	    time	    datetime			        FALSE	FALSE	TRUE
+code	    code	    varchar(50)	        50		FALSE	FALSE	FALSE
+-->
+
+    <new>
+        INSERT INTO 
+			user 
+        (
+            id, 
+            name,
+            alias,
+            email,
+            password,
+            disable,
+            time,
+            code
+        )
+		VALUES (
+			0, 
+			{name}, 
+            {alias},
+			{password}, 
+			{email}, 
+			{disable}, 
+			{time}, 
+			{code}
+		)
+    </new>
+
+    <rm>
+        DELETE FROM 
+			user
+        <if prepend="WHERE">
+            <if name="id" prepend="AND">id = {id}</if>
+            <if name="ids" prepend="AND">id in (<join name="ids" value="," />)</if>
+        </if>
+    </rm>
+
+    <set>
+		UPDATE 
+			user 
+		SET 
+		<if>
+			<if name="name" prepend=",">name = {name}</if>
+            <if name="alias" prepend=",">alias = {alias}</if>
+            <if name="password" prepend=",">password = {password}</if>
+            <if name="email" prepend=",">email = {email}</if>
+            <if name="disable" prepend=",">disable = {disable}</if>
+			<if name="code" prepend=",">code = {code}</if>
+		</if>
+		<if prepend="WHERE">
+			<if name="id" prepend="AND">id = {id}</if>
+			<if name="ids" prepend="AND">id in (<join name="ids" value="," />)</if>
+		</if>
+    </set>
+    
+    <get>
+		SELECT 
+			* 
+		FROM 
+			user
+		<if prepend="WHERE">
+			<if name="id" prepend="AND">id = {id}</if>
+			<if name="name" prepend="AND">name = {name}</if>
+            <if name="alias" prepend="AND">alias = {alias}</if>
+            <if name="password" prepend="AND">password = {password}</if>
+            <if name="email" prepend="AND">email = {email}</if>
+            <if name="disable" prepend="AND">disable = {disable}</if>
+			<if name="ids" prepend="AND">id in (<join name="ids" value="," />)</if>
+		</if>
+    </get>
+
+    <getUserByNameAndEmail>
+        SELECT
+            *
+        FROM
+            user
+        WHERE 
+            name = {name} or email = {email}
+    </getUserByNameAndEmail>
+
+    <search>
+        SELECT
+            id,name
+        FROM
+            user
+        WHERE
+            name LIKE {name}
+    </search>
+	
+</map>

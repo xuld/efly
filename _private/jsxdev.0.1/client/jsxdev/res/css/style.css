@@ -1,0 +1,386 @@
+
+*,input {
+    font-family: Monaco, Menlo, 'Ubuntu Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    /*font-size: 12px;*/
+}
+
+/*default extjs treepanel default style*/
+.x-tree-node, .x-tree-node * {
+    cursor: default;
+}
+.x-tree-node-leaf .x-tree-node-icon {
+    background-image: url(../img/empty.png);
+}
+
+.x-treegrid-col {
+    border-left: solid 1px #ededed;
+    text-overflow: inherit;
+}
+/*end*/
+
+
+.icon-drop-add {
+    background-image: url(../img/drop-add.gif) !important;
+}
+.icon-delete,.icon-delete-file
+{
+    background-image: url(../img/delete.png) !important;
+}
+.icon-delete-file
+{
+    background-image: url(../img/delete-file.png) !important;
+}
+.icon-expand-all
+{
+    background-image: url(../img/expand-all.gif) !important;
+}
+.icon-collapse-all
+{
+    background-image: url(../img/collapse-all.gif) /*!important*/ !important;
+}
+.icon-refresh
+{
+    background-image: url(../img/refresh1.gif) !important;
+}
+.icon-cog
+{
+    background-image: url(../img/cog.png) !important;
+}
+.icon-property
+{
+    background-image: url(../img/icon-by-category.gif) !important;
+}
+.icon-new,.icon-new-item
+{
+    background-image: url(../img/new-item.png) !important;
+}
+.icon-save
+{
+    background-image: url(../img/save.gif) !important;
+}
+.icon-save-all
+{
+    background-image: url(../img/save-all.gif) !important;
+}
+.icon-cut
+{
+    background-image: url(../img/cut.gif) !important;
+}
+.icon-copy
+{
+    background-image: url(../img/copy.png) !important;
+}
+.icon-paste
+{
+    background-image: url(../img/paste.gif) !important;
+}
+.icon-revoke
+{
+    background-image: url(../img/revoke.gif) !important;
+}
+.icon-repeat
+{
+    background-image: url(../img/repeat.gif) !important;
+}
+.icon-prev-file
+{
+    background-image: url(../img/prev-file.gif) !important;
+}
+.icon-next-file
+{
+    background-image: url(../img/next-file.gif) !important;
+}
+.icon-file-find
+{
+    background-image: url(../img/file-find.gif) !important;
+}
+.icon-res
+{
+    background-image: url(../img/res.gif) !important;
+}
+.icon-property-panel
+{
+    background-image: url(../img/property-panel.gif) !important;
+}
+.icon-tools
+{
+    background-image: url(../img/tools.gif) !important;
+}
+.icon-object
+{
+    background-image: url(../img/object.gif) !important;
+}
+.icon-format-doc
+{
+    background-image: url(../img/format-doc.gif) !important;
+}
+.icon-before-indentation
+{
+    background-image: url(../img/before-indentation.gif) !important;
+}
+.icon-after-indentation
+{
+    background-image: url(../img/after-indentation.gif) !important;
+}
+.icon-comment-rows
+{
+    background-image: url(../img/comment-rows.gif) !important;
+}
+.icon-revoked-comment-rows
+{
+    background-image: url(../img/revoked-comment-rows.gif) !important;
+}
+.icon-start-debug
+{
+    background-image: url(../img/start-debug.gif) !important;
+}
+.icon-start
+{
+    background-image: url(../img/start.png) !important;
+}
+.icon-pause-debug
+{
+    background-image: url(../img/pause-debug.gif) !important;
+}
+.icon-stop-debug
+{
+    background-image: url(../img/stop-debug.gif) !important;
+}
+.icon-restart-debug
+{
+    background-image: url(../img/restart-debug.gif) !important;
+}
+.icon-next-statement
+{
+    background-image: url(../img/next-statement.gif) !important;
+}
+.icon-by-statement
+{
+    background-image: url(../img/by-statement.gif) !important;
+}
+.icon-by-function
+{
+    background-image: url(../img/by-function.gif) !important;
+}
+.icon-out-of
+{
+    background-image: url(../img/out-of.gif) !important;
+}
+
+
+/*===============*/
+.icon-new-dir
+{
+    background-image: url(../img/folder_add.png) !important;
+}
+.icon-browse
+{
+    background-image: url(../img/browse.gif) !important;
+}
+.icon-code-bookmark
+{
+    background-image: url(../img/code-bookmark.gif) !important;
+}
+.icon-console
+{
+    background-image: url(../img/console.png) !important;
+}
+.icon-debug-arrow
+{
+    background-image: url(../img/debug-arrow.gif) !important;
+}
+.icon-debug-breakpoint
+{
+    background-image: url(../img/debug-breakpoint.gif) !important;
+}
+.icon-function
+{
+    background-image: url(../img/function.gif) !important;
+}
+.icon-error
+{
+    background-image: url(../img/error.png) !important;
+}
+.icon-process
+{
+    background-image: url(../img/process.gif) !important;
+}
+.icon-stack
+{
+    background-image: url(../img/stack.gif) !important;
+}
+.icon-thread
+{
+    background-image: url(../img/thread.gif) !important;
+}
+.icon-variable
+{
+    background-image: url(../img/variable.gif) !important;
+}
+.icon-watch
+{
+    background-image: url(../img/watch.gif) !important;
+}
+.icon-hmenu-lock
+{
+    background-image: url(../img/hmenu-lock.gif) !important;
+}
+.icon-hmenu-unlock
+{
+    background-image: url(../img/hmenu-unlock.gif) !important;
+}
+.icon-application
+{
+    /*background-image: url(../img/application.gif) !important;*/
+}
+.icon-class
+{
+    background-image: url(../img/class.gif) !important;
+}
+.icon-class-pic
+{
+    background-image: url(../img/class-pic.gif) !important;
+}
+.icon-client
+{
+    background-image: url(../img/client.gif) !important;
+}
+.icon-resx
+{
+    background-image: url(../img/resx.gif) !important;
+}
+.icon-server
+{
+    background-image: url(../img/server.png) !important;
+}
+.icon-world_go
+{
+    background-image: url(../img/world_go.png) !important;
+}
+.icon-open
+{
+    background-image: url(../img/open.png) !important;
+}
+.icon-drop-no
+{
+    background-image: url(../img/drop-no.gif) !important;
+}
+.icon-empty
+{
+    background-image: url(../img/empty.png) !important;
+}
+.icon-empty_img
+{
+    background-image: url(../img/empty_img.png) !important;
+}
+.icon-map
+{
+    background-image: url(../img/txt.png) !important;
+}
+.icon-edit
+{
+    background-image: url(../img/edit.gif) !important;
+}
+
+
+/*file type*/
+.icon-conf
+{
+    background-image: url(../img/conf.png) !important;
+}
+.icon-css
+{
+    background-image: url(../img/css.gif) !important;
+}
+.icon-html, .icon-htm
+{
+    background-image: url(../img/html.png) !important;
+}
+.icon-js
+{
+    background-image: url(../img/js.png) !important;
+}
+.icon-gif, .icon-jpg, .icon-jpeg, .icon-bmp, .icon-png, .icon-ico, .icon-psd
+{
+    background-image: url(../img/picture.png) !important;
+}
+.icon-txt
+{
+    background-image: url(../img/txt.png) !important;
+}
+.icon-xml
+{
+    background-image: url(../img/xml.gif) !important;
+}
+.icon-c, .icon-cc
+{
+    background-image: url(../img/c.png) !important;
+}
+.icon-h
+{
+    background-image: url(../img/h.png) !important;
+}
+.icon-cpp
+{
+    background-image: url(../img/cpp.png) !important;
+}
+.icon-cs
+{
+    background-image: url(../img/cs.png) !important;
+}
+.icon-fla,.icon-swf
+{
+    background-image: url(../img/fla.png) !important;
+}
+.icon-doc, .icon-docx
+{
+    background-image: url(../img/doc.png) !important;
+}
+.icon-xls, .icon-xlsx
+{
+    background-image: url(../img/xls.png) !important;
+}
+.icon-py
+{
+    background-image: url(../img/py.gif) !important;
+}
+.icon-zip, .icon-rar, .icon-7z, .icon-gz
+{
+    background-image: url(../img/zip.png) !important;
+}
+.icon-bat, .icon-sh
+{
+    background-image: url(../img/console.png) !important;
+}
+.icon-wiki
+{
+    background-image: url(../img/world.png) !important;
+}
+.icon-min-close
+{
+    background-image: url(../img/close.gif) !important;
+}
+.icon-server-go
+{
+    background-image: url(../img/server_go.png) !important;
+}
+.icon-server-stop
+{
+    background-image: url(../img/server_stop.png) !important;
+}
+.icon-open-file
+{
+    background-image: url(../img/open-file.png) !important;
+}
+.icon-upload
+{
+    background-image: url(../img/upload.png) !important;
+}
+.icon-loading
+{
+    background-image: url(../img/loading.gif) !important;
+}
+.icon-large-loading
+{
+    background-image: url(../img/large-loading.gif) !important;
+}

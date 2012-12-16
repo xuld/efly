@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<map>
+
+<!--
+create table project
+(
+   id                   bigint not null auto_increment comment 'ID',
+   basedir              varchar(50) not null,
+   top                  bigint,
+   parent               bigint,
+   tag                  bit not null comment '是否为tag',
+   name                 varchar(255) not null comment '项目名称',
+   info                 text not null comment '项目描叙',
+   company              varchar(255),
+   email                varchar(50),
+   msn                  varchar(50),
+   time                 datetime not null comment '项目创建时间',
+   del                  bit not null,
+   primary key (id)
+);
+-->
+
+    <new>
+        INSERT INTO 
+			project 
+        (
+            id,
+            basedir,
+            top,
+            parent,
+            tag,
+            name,
+            info,
+            company,
+            email,
+            msn,
+            time,
+            del
+        )
+		VALUES (
+			0, 
+            {basedir},
+            {top},
+            {parent},
+            {tag},
+			{name}, 
+			{info}, 
+            {company}, 
+			{email}, 
+            {msn},
+			{time},
+            FALSE
+		)
+    </new>
+
+    <rm>
+        DELETE FROM 
+			project
+        <if prepend="WHERE">
+            <if name="id" prepend="AND">id = {id}</if>
+            <if name="ids" prepend="AND">id IN (<join name="ids" value="," />)</if>
+        </if>
+    </rm>
+
+    <set>
+		UPDATE 
+			project 
+		SET 
+		<if>
+			<if name="name" prepend=",">name = {name}</if>
+			<if name="info" prepend=",">info = {info}</if>
+            <if name="company" prepend=",">company = {company}</if>
+            <if name="email" prepend=",">email = {email}</if>
+            <if name="msn" prepend=",">msn = {msn}</if>
+            <if name="del" prepend=",">del = {del}</if>
+        </if>
+		<if prepend="where">
+			<if name="id" prepend="AND">id = {id}</if>
+			<if name="ids" prepend="AND">id IN (<join name="ids" value="," />)</if>
+		</if>
+    </set>
+
+    <get>
+		SELECT 
+			* 
+		FROM 
+			project 
+		<if prepend="WHERE">
+			<if name="id" prepend="AND">id = {id}</if>
+            <if name="basedir" prepend="AND">basedir = {basedir}</if>
+			<if name="top" prepend="AND">top = {top}</if>
+            <if name="parent" prepend="AND">parent = {parent}</if>
+            <if name="tag" prepend="AND">tag = {tag}</if>
+            <if name="name" prepend="AND">name = {name}</if>
+            <if name="info" prepend="AND">info link {info}</if>
+            <if name="info" prepend="AND">company = {company}</if>
+            <if name="info" prepend="AND">email = {email}</if>
+            <if name="msn" prepend="AND">msn = {msn}</if>
+            <if name="del" prepend="AND">del = {del}</if>
+            <if name="ids" prepend="AND">id IN (<join name="ids" value="," />)</if>
+		</if>
+    </get>
+
+    <getProjectNodes>
+        SELECT
+            p.*
+            <if name="uids" prepend=",">MIN(pr.weight) AS weight</if>
+        FROM
+            project AS p
+        <if name="uids">
+        LEFT JOIN
+            project_relation AS pr
+        ON
+            p.id = pr.pid AND 
+            pr.uid IN (<join name="uids" value="," />)
+        </if>
+        JOIN 
+            (SELECT
+		        CASE WHEN top IS NULL THEN 
+			        id
+		        ELSE 
+			        top 
+		        END AS id
+		 	FROM
+		 		project
+		 	WHERE
+		 		id = {id}) AS temp
+        WHERE
+            (p.id = temp.id OR p.top = temp.id) AND p.del = FALSE
+        GROUP BY p.id
+    </getProjectNodes>
+    
+    <getProjectWeights>
+        SELECT
+	        pr.*, user.name
+        FROM
+	        project AS p
+        JOIN 
+	        (SELECT
+		        CASE WHEN top IS NULL THEN 
+			        id
+		        ELSE 
+			        top 
+		        END AS id
+	        FROM
+		        project
+	        WHERE
+		        id = {id}) AS temp
+        JOIN
+	        project_relation AS pr
+        ON
+	        pr.pid = p.id
+        JOIN
+	        user
+        ON
+	        user.id = pr.uid
+        WHERE
+	        (p.id = temp.id OR p.top = temp.id) AND p.del = FALSE
+    </getProjectWeights>
+
+    <getProjectByUserID>
+        SELECT 
+	        project.*
+        FROM
+        	(SELECT 
+		        DISTINCT
+		        CASE WHEN project.top IS NOT NULL THEN 
+			        (SELECT p.id FROM project p WHERE project.top = p.id) 
+		        ELSE 
+			        project.id 
+		        END AS id
+	        FROM
+		        project
+	        JOIN
+		        project_relation
+	        ON
+		        project_relation.pid = project.id
+	        WHERE
+		        project_relation.uid IN (<join name="uids" value="," />) AND project.del = FALSE
+            ) AS temp
+        JOIN
+            project
+        ON
+	        temp.id = project.id
+    </getProjectByUserID>
+
+    <getProjectByUserName cache="10">
+        SELECT 
+	        project.*
+        FROM
+        	(SELECT 
+		        DISTINCT
+		        CASE WHEN project.top IS NOT NULL THEN 
+			        (SELECT p.id FROM project p WHERE project.top = p.id) 
+		        ELSE 
+			        project.id 
+		        END AS id
+	        FROM
+		        project
+	        JOIN
+		        project_relation
+	        ON
+		        project_relation.pid = project.id
+	        WHERE
+		        project_relation.uid IN (SELECT id FROM user WHERE name = {username}) AND project.del = FALSE
+            <if name="index">
+                <if name="count">LIMIT {index}, {count}</if>
+            </if>
+            ) AS temp
+        JOIN
+            project
+        ON
+	        temp.id = project.id
+            <if name="key">AND (project.name LIKE {key} OR project.info LIKE {key})</if>
+    </getProjectByUserName>
+
+    <getProjectTotalByUserName cache="10">
+        SELECT 
+	        COUNT(temp.id) AS total
+        FROM
+        	(SELECT 
+		        DISTINCT
+		        CASE WHEN project.top IS NOT NULL THEN 
+			        (SELECT p.id FROM project p WHERE project.top = p.id) 
+		        ELSE 
+			        project.id 
+		        END AS id
+	        FROM
+		        project
+	        JOIN
+		        project_relation
+	        ON
+		        project_relation.pid = project.id
+	        WHERE
+		        project_relation.uid IN (SELECT id FROM user WHERE name = {username}) AND project.del = FALSE
+            ) AS temp
+        JOIN
+            project
+        ON
+	        temp.id = project.id
+        <if name="key">AND (project.name LIKE {key} OR project.info LIKE {key})</if>
+    </getProjectTotalByUserName>
+
+</map>

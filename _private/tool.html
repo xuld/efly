@@ -1,0 +1,33 @@
+
+<textarea id=a></textarea>
+
+
+<input type="button" onclick="a()" value="转换">
+
+<script>
+    
+    
+    function a(){
+        var value = document.getElementById('a').value;
+        
+        value = new Function(value);
+        
+        var oo = {};
+        var aa = value.call(oo);
+        
+       // value = value.replace(/;([\s\S]*?this\.\w+\s*=)/g, ',$1').replace(/^(\s*)this\.(\w+)\s*=\s*/gm, '$1$2: ')
+          
+          
+          var rr = '';
+          
+          for(var item in oo){
+              rr += item + ': ' + oo[item] + ',\r\n';
+              }  
+        
+        
+        document.getElementById('a').value = rr;
+        
+    }
+    
+    
+</script>
