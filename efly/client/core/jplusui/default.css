@@ -1,14 +1,60 @@
 
+/* 全局 */
+
+/* 图标 */
+
+/* http://icomoon.io/app/ */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.svg#icomoon') format('svg'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype');
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+.icon:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	color: #F1F1F1;
+
+}
+/*.icon-twitter:before {
+	content: "\22";
+}
+.icon-comment-fill:before {
+	content: "\21";
+}*/
+
+
+/* 默认样式 */
+
 body {
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
 	font-family: 'Open Sans','PT Sans','DejaVu Sans','Bitstream Vera Sans','微软雅黑';
+	cursor: default;
+	line-height: 26px;
+    background: #2D2D30;
 }
 
-::-moz-placeholder {
-	color: #999;
-	font-style: italic;
+body, a, input {
+	color: #F1F1F1;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.right {
+	float: right;
 }
 
 :-moz-placeholder {
@@ -22,13 +68,54 @@ body {
 	font-style: italic;
 }
 
+
+/* 顶部条 */
+
 #topbar {
-	background: #595959;
 	height: 26px;
-	line-height: 26px;
 	text-shadow: 0 1px 0 #2C2C2C;
-	color: #F1F1F1;
-	cursor: default;
+}
+
+/* 搜索框 */
+
+.icon-search:before {
+    content: "\e1e8";
+}
+
+#search{
+	border: 0;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5) inset;
+	padding: 4px 24px 4px 2px;
+	height: 14px;
+	width: 200px;
+	font-size: 13px;
+	font-family: 'Monaco','Menlo','Ubuntu Mono','Consolas','source-code-pro',monospace;
+	vertical-align: 1px;
+	margin-right: 2px;
+	background: #333337;
+}
+
+#search:hover, #search:focus {
+	background: #535359;
+}
+
+.icon-search {
+    content: "\e1e8";
+	position: absolute;
+	right: 6px;
+	top: 3px;
+	width: 20px;
+	height: 20px;
+    color: #f1f1f1;
+}
+
+.icon-search:hover {
+	opacity: 0.8;
+}
+
+.icon-search:active {
+	right: 5px;
+	top: 4px;
 }
 
 #topbar  a {
@@ -57,45 +144,6 @@ body {
 	-webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
 	-moz-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
 	box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
-}
-
-.right {
-	float: right;
-}
-
-#search{
-	border: 0;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5) inset;
-	padding: 4px 24px 4px 2px;
-	height: 14px;
-	width: 200px;
-	font-size: 13px;
-	font-family: 'Monaco','Menlo','Ubuntu Mono','Consolas','source-code-pro',monospace;
-	vertical-align: 1px;
-	margin-right: 2px;
-	background: #eee;
-}
-
-#search:focus, .icon-search:focus + #search{
-	background: #fff;
-}
-
-.icon-search {
-	position: absolute;
-	right: 6px;
-	top: 3px;
-	background: url(images/searchtextbox.gif) no-repeat center center;
-	width: 20px;
-	height: 20px;
-}
-
-.icon-search:hover {
-	opacity: 0.8;
-}
-
-.icon-search:active {
-	right: 5px;
-	top: 4px;
 }
 
 #menu a.selected {
@@ -169,10 +217,6 @@ body {
 
 .toolbutton:active {
 }
-
-	background-position: -476px -490px;
-}
-
 
 .header-btn {
 	-moz-user-select: -moz-none;
