@@ -28,9 +28,6 @@
 	line-height: 1;
 	-webkit-font-smoothing: antialiased;
 }
-.icon-search:before {
-	content: "\e1000";
-}
 .icon-play:before {
 	content: "\e00b";
 }
@@ -154,75 +151,81 @@
 .icon-arrow-right:before {
 	content: "\e09f";
 }
-.icon-untitled:before {
+.icon-bottom:before {
 	content: "\f0d7";
 }
-.icon-untitled-2:before {
-	content: "\f0d8";
-}
-.icon-untitled-3:before {
+.icon-left:before {
 	content: "\f0d9";
 }
-.icon-untitled-4:before {
+.icon-right:before {
 	content: "\f0da";
 }
-.icon-untitled-5:before {
+.icon-updown-down:before {
 	content: "\f0dd";
 }
-.icon-untitled-6:before {
+.icon-updown-up:before {
 	content: "\f0de";
 }
-.icon-untitled-7:before {
+.icon-updown:before {
 	content: "\f0dc";
 }
-.icon-untitled-8:before {
+.icon-split:before {
 	content: "\f0db";
 }
-.icon-untitled-9:before {
+.icon-untitled:before {
 	content: "\f0e2";
 }
-.icon-untitled-10:before {
+.icon-next:before {
 	content: "\f054";
 }
-.icon-untitled-11:before {
+.icon-prev:before {
 	content: "\f053";
 }
-.icon-untitled-12:before {
+.icon-untitled-2:before {
 	content: "\f077";
 }
-.icon-untitled-13:before {
+.icon-untitled-3:before {
 	content: "\f078";
 }
-.icon-untitled-14:before {
+.icon-untitled-4:before {
 	content: "\f060";
 }
-.icon-untitled-15:before {
+.icon-untitled-5:before {
 	content: "\f061";
 }
-.icon-untitled-16:before {
+.icon-untitled-6:before {
 	content: "\f062";
 }
-.icon-untitled-17:before {
+.icon-untitled-7:before {
 	content: "\f063";
 }
-.icon-untitled-18:before {
+.icon-refresh:before {
 	content: "\f021";
 }
-.icon-untitled-19:before {
+.icon-plus-3:before {
 	content: "\f067";
 }
-.icon-untitled-20:before {
+.icon-minus-3:before {
 	content: "\f068";
 }
-.icon-untitled-21:before {
+.icon-untitled-8:before {
 	content: "\f0e8";
 }
-.icon-untitled-22:before {
+.icon-cut:before {
 	content: "\f0c4";
 }
-.icon-untitled-23:before {
+.icon-copy-2:before {
 	content: "\f0c5";
 }
-.icon-untitled-24:before {
+.icon-save:before {
 	content: "\f0c7";
+}
+.icon-search:before {
+	content: "\e1000";
+}
+.icon-wrench:before {
+	content: "\e001";
+}
+.icon-top:before {
+	content: "\f0d8";
 }

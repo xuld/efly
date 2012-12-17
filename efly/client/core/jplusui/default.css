@@ -1,5 +1,6 @@
-
-/* 全局 */
+/*************************** 
+ * 组件 
+ ***************************/
 
 /* 图标 */
 
@@ -14,7 +15,6 @@
 		url('fonts/icomoon.ttf') format('truetype');
 }
 
-/* Use the following CSS code if you want to have a class per icon */
 .icon:before {
 	font-family: 'icomoon';
 	font-style: normal;
@@ -25,13 +25,76 @@
 	color: #F1F1F1;
 
 }
-/*.icon-twitter:before {
-	content: "\22";
-}
-.icon-comment-fill:before {
-	content: "\21";
-}*/
 
+/* 公共 */
+
+.right {
+	float: right;
+}
+
+.dropdown {
+	position: absolute;
+	-webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
+	-moz-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
+	box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
+}
+
+/* 工具条 */
+
+.toolbar {
+	text-shadow: 0 1px 0 #2C2C2C;
+	padding: 4px;
+}
+
+.toolbar-button, .toolbar-menubutton, .toolbar-splitbutton {
+    display: inline-block;
+	padding: 0 10px;
+    line-height: 24px;
+}
+
+.toolbar-menubutton {
+	z-index: 102;
+}
+
+.toolbar-splitter {
+	border-left: 1px solid #373737;
+	border-right: 1px solid #777777;
+}
+
+.toolbar-splitbutton {
+    padding: 0;
+}
+
+.toolbar-splitbutton a {
+    padding: 0 4px 0 10px;
+}
+
+.toolbar-splitbutton .icon {
+    padding: 0 8px 0 4px;
+}
+
+.toolbar-hover {
+	background: #2D2D30;
+}
+
+.toolbar-actived {
+	background: #494949;
+}
+
+.button.toolbar-actived {
+	background: #494949;
+}
+
+/* 菜单 */
+
+
+
+
+
+
+/*************************** 
+ * 全局 
+ ***************************/
 
 /* 默认样式 */
 
@@ -42,19 +105,16 @@ body {
 	font-family: 'Open Sans','PT Sans','DejaVu Sans','Bitstream Vera Sans','微软雅黑';
 	cursor: default;
 	line-height: 26px;
-    background: #2D2D30;
+    background: #494949;
 }
 
 body, a, input {
 	color: #F1F1F1;
 }
 
-a:hover {
+a {
+	cursor: default;
     text-decoration: none;
-}
-
-.right {
-	float: right;
 }
 
 :-moz-placeholder {
@@ -68,19 +128,11 @@ a:hover {
 	font-style: italic;
 }
 
-
-/* 顶部条 */
-
-#topbar {
-	height: 26px;
-	text-shadow: 0 1px 0 #2C2C2C;
-}
+/*************************** 
+ * 页面 
+ ***************************/
 
 /* 搜索框 */
-
-.icon-search:before {
-    content: "\e1e8";
-}
 
 #search{
 	border: 0;
@@ -100,55 +152,21 @@ a:hover {
 }
 
 .icon-search {
-    content: "\e1e8";
 	position: absolute;
-	right: 6px;
-	top: 3px;
-	width: 20px;
-	height: 20px;
-    color: #f1f1f1;
+	right: 9px;
+    color: #999;
 }
 
 .icon-search:hover {
-	opacity: 0.8;
+    opacity: 0.8;
 }
 
 .icon-search:active {
-	right: 5px;
-	top: 4px;
+	right: 8px;
+	top: 1px;
 }
 
-#topbar  a {
-	color: #F1F1F1;
-	text-decoration: none;
-	cursor: default;
-}
-
-#menu a {
-	display: inline-block;
-	padding: 0 10px;
-	z-index: 102;
-}
-
-#menu a.hover {
-	background: #666666;
-}
-
-#menu .splitter {
-	border-left: 1px solid #373737;
-	border-right: 1px solid #777777;
-}
-
-.dropdown {
-	position: absolute;
-	-webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
-	-moz-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
-	box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
-}
-
-#menu a.selected {
-	background: #494949;
-}
+/* 菜单栏 */
 
 .menu {
 	background: #494949;
@@ -190,7 +208,6 @@ a:hover {
 	text-shadow: none;
 }
 
-
 .menu .submenu {
 	background-image: url(images/submenu_arrow.gif);
 	background-position: 96% -7px;
@@ -211,8 +228,6 @@ a:hover {
 	background: url("images/c9-no-repeat.png") no-repeat scroll 0 100px;
 	color: #F1F1F1;
 	padding: 0 10px;
-.toolbutton:hover {
-	background-position: -476px -457px;
 }
 
 .toolbutton:active {
