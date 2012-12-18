@@ -277,6 +277,30 @@
     background: #3399FF;
 }
 
+/* 分隔条 */
+
+.splitter, .splitter-proxy {
+    z-index: 100;
+    overflow: hidden;
+    position: absolute;
+}
+
+.splitter-left, .splitter-right {
+    cursor: e-resize;
+    cursor: col-resize;
+    width: 6px;
+    height: 100%;
+    top: 0;
+}
+
+.splitter-top, .splitter-bottom {
+    cursor: n-resize;
+    cursor: row-resize;
+    width: 100%;
+    height: 6px;
+    left: 0;
+}
+
 /*************************** 
  * 全局 
  ***************************/
