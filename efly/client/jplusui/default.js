@@ -10,7 +10,7 @@ var Menu = TreeControl.extend({
 	showDuration: null,
 
 	/**
-	 * ±íÊ¾µ±Ç°²Ëµ¥ÊÇ·ñÎª¸¡¶¯µÄ²Ëµ¥¡£ 
+	 * è¡¨ç¤ºå½“å‰èœå•æ˜¯å¦ä¸ºæµ®åŠ¨çš„èœå•ã€‚ 
 	 */
 	floating: false,
 
@@ -18,7 +18,7 @@ var Menu = TreeControl.extend({
 
 		if (!(childControl instanceof MenuItem)) {
 
-			// Èç¹ûÊÇÎÄ±¾¡£
+			// å¦‚æœæ˜¯æ–‡æœ¬ã€‚
 			if (childControl.node.nodeType === 3) {
 
 				// - => MenuSeperator
@@ -28,10 +28,10 @@ var Menu = TreeControl.extend({
 
 					childControl = new MenuSeperator;
 
-					// ÆäËü => Ìí¼Óµ½ MenuItem
+					// å…¶å®ƒ => æ·»åŠ åˆ° MenuItem
 				} else {
 
-					// ±£´æÔ­ÓĞ childControl ¡£
+					// ä¿å­˜åŸæœ‰ childControl ã€‚
 					var t = childControl;
 					childControl = new MenuItem;
 					childControl.append(t);
@@ -40,7 +40,7 @@ var Menu = TreeControl.extend({
 				childControl = new MenuSeperator(childControl);
 			} else {
 
-				// ´´½¨¶ÔÓ¦µÄ MenuItem ¡£
+				// åˆ›å»ºå¯¹åº”çš„ MenuItem ã€‚
 				childControl = new MenuItem(childControl);
 			}
 
@@ -52,10 +52,10 @@ var Menu = TreeControl.extend({
 
 	init: function () {
 
-		// °ó¶¨½ÚµãºÍ¿Ø¼ş£¬·½±ã·¢ÉúÊÂ¼şºó£¬¸ù¾İÊÂ¼şÔ´µÃµ½¿Ø¼ş¡£
+		// ç»‘å®šèŠ‚ç‚¹å’Œæ§ä»¶ï¼Œæ–¹ä¾¿å‘ç”Ÿäº‹ä»¶åï¼Œæ ¹æ®äº‹ä»¶æºå¾—åˆ°æ§ä»¶ã€‚
 		this.dataField().control = this;
 
-		// ¸ù¾İÒÑÓĞµÄ DOM ½á¹¹³õÊ¼»¯²Ëµ¥¡£
+		// æ ¹æ®å·²æœ‰çš„ DOM ç»“æ„åˆå§‹åŒ–èœå•ã€‚
 		TreeControl.prototype.init.call(this);
 	},
 
@@ -64,7 +64,7 @@ var Menu = TreeControl.extend({
 			duration: this.showDuration
 		});
 
-		// Èç¹û²Ëµ¥ÊÇ¸¡¶¯µÄ£¬Ôòµã»÷ºó¹Ø±Õ²Ëµ¥£¬·ñÔò£¬Ö»¹Ø±Õ×Ó²Ëµ¥¡£
+		// å¦‚æœèœå•æ˜¯æµ®åŠ¨çš„ï¼Œåˆ™ç‚¹å‡»åå…³é—­èœå•ï¼Œå¦åˆ™ï¼Œåªå…³é—­å­èœå•ã€‚
 		if (this.floating)
 			document.once('mouseup', this.hide, this);
 		this.trigger('show');
@@ -72,31 +72,31 @@ var Menu = TreeControl.extend({
 	},
 
 	/**
-	 * ¹Ø±Õ±¾²Ëµ¥¡£
+	 * å…³é—­æœ¬èœå•ã€‚
 	 */
 	hide: function () {
 		Dom.prototype.hide.call(this, arguments, {
 			duration: this.showDuration
 		});
 
-		// ÏÈ¹Ø±Õ×Ó²Ëµ¥¡£
+		// å…ˆå…³é—­å­èœå•ã€‚
 		this.hideSubMenu();
 		this.trigger('hide');
 		return this;
 	},
 
 	/**
-	 * µ±Ç°²Ëµ¥ÒÀ¿¿Ä³¸ö¿Ø¼şÏÔÊ¾¡£
-	 * @param {Control} ctrl ·½Ïò¡£
+	 * å½“å‰èœå•ä¾é æŸä¸ªæ§ä»¶æ˜¾ç¤ºã€‚
+	 * @param {Control} ctrl æ–¹å‘ã€‚
 	 */
 	showAt: function (x, y) {
 
-		// È·±£²Ëµ¥ÒÑÌí¼Óµ½ÎÄµµÄÚ¡£
+		// ç¡®ä¿èœå•å·²æ·»åŠ åˆ°æ–‡æ¡£å†…ã€‚
 		if (!this.closest('body')) {
 			this.appendTo();
 		}
 
-		// ÏÔÊ¾½Úµã¡£
+		// æ˜¾ç¤ºèŠ‚ç‚¹ã€‚
 		this.show();
 
 		this.setPosition(x, y);
@@ -105,17 +105,17 @@ var Menu = TreeControl.extend({
 	},
 
 	/**
-	 * µ±Ç°²Ëµ¥ÒÀ¿¿Ä³¸ö¿Ø¼şÏÔÊ¾¡£
-	 * @param {Control} ctrl ·½Ïò¡£
+	 * å½“å‰èœå•ä¾é æŸä¸ªæ§ä»¶æ˜¾ç¤ºã€‚
+	 * @param {Control} ctrl æ–¹å‘ã€‚
 	 */
 	showBy: function (ctrl, pos, offsetX, offsetY, enableReset) {
 
-		// È·±£²Ëµ¥ÒÑÌí¼Óµ½ÎÄµµÄÚ¡£
+		// ç¡®ä¿èœå•å·²æ·»åŠ åˆ°æ–‡æ¡£å†…ã€‚
 		if (!this.closest('body')) {
 			this.appendTo(ctrl.parent());
 		}
 
-		// ÏÔÊ¾½Úµã¡£
+		// æ˜¾ç¤ºèŠ‚ç‚¹ã€‚
 		this.show();
 
 		this.pin(ctrl, pos || 'r', offsetX != null ? offsetX : -5, offsetY != null ? offsetY : -5, enableReset);
@@ -124,29 +124,29 @@ var Menu = TreeControl.extend({
 	},
 
 	/**
-	 * ÏÔÊ¾Ö¸¶¨ÏîµÄ×Ó²Ëµ¥¡£
-	 * @param {MenuItem} menuItem ×Ó²Ëµ¥Ïî¡£
+	 * æ˜¾ç¤ºæŒ‡å®šé¡¹çš„å­èœå•ã€‚
+	 * @param {MenuItem} menuItem å­èœå•é¡¹ã€‚
 	 * @protected
 	 */
 	showSubMenu: function (menuItem) {
 
-		// Èç¹û²»ÊÇÓÒ¼üµÄ²Ëµ¥£¬ÔÚ´ò¿ª×Ó²Ëµ¥ºó¼àÌıµã»÷£¬²¢¹Ø±Õ´Ë×Ó²Ëµ¥¡£
+		// å¦‚æœä¸æ˜¯å³é”®çš„èœå•ï¼Œåœ¨æ‰“å¼€å­èœå•åç›‘å¬ç‚¹å‡»ï¼Œå¹¶å…³é—­æ­¤å­èœå•ã€‚
 		if (!this.floating)
 			document.once('mouseup', this.hideSubMenu, this);
 
-		// Òş²Øµ±Ç°Ïî×Ó²Ëµ¥¡£
+		// éšè—å½“å‰é¡¹å­èœå•ã€‚
 		this.hideSubMenu();
 
-		// ¼¤»î±¾Ïî¡£
+		// æ¿€æ´»æœ¬é¡¹ã€‚
 		menuItem.state("hover", true);
 
-		// Èç¹ûÖ¸¶¨µÄÏî´æÔÚ×Ó²Ëµ¥¡£
+		// å¦‚æœæŒ‡å®šçš„é¡¹å­˜åœ¨å­èœå•ã€‚
 		if (menuItem.subControl) {
 
-			// ÉèÖÃµ±Ç°¼¤»îµÄÏî¡£
+			// è®¾ç½®å½“å‰æ¿€æ´»çš„é¡¹ã€‚
 			this.currentSubMenu = menuItem;
 
-			// ÏÔÊ¾×Ó²Ëµ¥¡£
+			// æ˜¾ç¤ºå­èœå•ã€‚
 			menuItem.subControl.showBy(menuItem);
 
 		}
@@ -154,18 +154,18 @@ var Menu = TreeControl.extend({
 	},
 
 	/**
-	 * ¹Ø±Õ±¾²Ëµ¥´ò¿ªµÄ×Ó²Ëµ¥¡£
+	 * å…³é—­æœ¬èœå•æ‰“å¼€çš„å­èœå•ã€‚
 	 * @protected
 	 */
 	hideSubMenu: function () {
 
-		// Èç¹ûÓĞ×Ó²Ëµ¥£¬¾ÍÒş²Ø¡£
+		// å¦‚æœæœ‰å­èœå•ï¼Œå°±éšè—ã€‚
 		if (this.currentSubMenu) {
 
-			// ¹Ø±Õ×Ó²Ëµ¥¡£
+			// å…³é—­å­èœå•ã€‚
 			this.currentSubMenu.subControl.hide();
 
-			// È¡Ïû¼¤»î²Ëµ¥¡£
+			// å–æ¶ˆæ¿€æ´»èœå•ã€‚
 			this.currentSubMenu.state("hover", false);
 			this.currentSubMenu = null;
 		}
@@ -177,16 +177,16 @@ var Menu = TreeControl.extend({
 
 
 /**
- * ±íÊ¾²Ëµ¥Ïî¡£ 
+ * è¡¨ç¤ºèœå•é¡¹ã€‚ 
  */
 var MenuItem = TreeControl.Item.extend({
 
 	xtype: 'menuitem',
 
 	/**
-	 * µ±±»×ÓÀàÖØĞ´Ê±£¬ÓÃÓÚ´´½¨×ÓÊ÷¡£
-	 * @param {TreeControl} treeControl Òª³õÊ¼»¯µÄ×ÓÊ÷¡£
-	 * @return {TreeControl} ĞÂµÄ {@link TreeControl} ¶ÔÏó¡£
+	 * å½“è¢«å­ç±»é‡å†™æ—¶ï¼Œç”¨äºåˆ›å»ºå­æ ‘ã€‚
+	 * @param {TreeControl} treeControl è¦åˆå§‹åŒ–çš„å­æ ‘ã€‚
+	 * @return {TreeControl} æ–°çš„ {@link TreeControl} å¯¹è±¡ã€‚
 	 * @protected override
 	 */
 	createSubControl: function (treeControl) {
@@ -194,8 +194,8 @@ var MenuItem = TreeControl.Item.extend({
 	},
 
 	/**
-	 * µ±±»×ÓÀàÖØĞ´Ê±£¬ÓÃÓÚ³õÊ¼»¯×ÓÊ÷¡£
-	 * @param {TreeControl} treeControl Òª³õÊ¼»¯µÄ×ÓÊ÷¡£
+	 * å½“è¢«å­ç±»é‡å†™æ—¶ï¼Œç”¨äºåˆå§‹åŒ–å­æ ‘ã€‚
+	 * @param {TreeControl} treeControl è¦åˆå§‹åŒ–çš„å­æ ‘ã€‚
 	 * @protected override
 	 */
 	initSubControl: function (treeControl) {
@@ -206,8 +206,8 @@ var MenuItem = TreeControl.Item.extend({
 	},
 
 	/**
-	 * µ±±»×ÓÀàÖØĞ´Ê±£¬ÓÃÓÚÉ¾³ı³õÊ¼»¯×ÓÊ÷¡£
-	 * @param {TreeControl} treeControl ÒªÉ¾³ı³õÊ¼»¯µÄ×ÓÊ÷¡£
+	 * å½“è¢«å­ç±»é‡å†™æ—¶ï¼Œç”¨äºåˆ é™¤åˆå§‹åŒ–å­æ ‘ã€‚
+	 * @param {TreeControl} treeControl è¦åˆ é™¤åˆå§‹åŒ–çš„å­æ ‘ã€‚
 	 * @protected override
 	 */
 	uninitSubControl: function (treeControl) {
@@ -226,9 +226,9 @@ var MenuItem = TreeControl.Item.extend({
 
 	onMouseOut: function () {
 
-		// Ã»×Ó²Ëµ¥£¬ĞèÒª×ÔÈ¡Ïû¼¤»î¡£
-		// ·ñÔò£¬ÓÉ¸¸²Ëµ¥È¡Ïûµ±Ç°²Ëµ¥µÄ×´Ì¬¡£
-		// ÒòÎªÈç¹ûÓĞ×Ó²Ëµ¥£¬±ØĞëÔÚ×Ó²Ëµ¥¹Ø±Õºó²ÅÄÜ¹Ø±Õ¼¤»î¡£
+		// æ²¡å­èœå•ï¼Œéœ€è¦è‡ªå–æ¶ˆæ¿€æ´»ã€‚
+		// å¦åˆ™ï¼Œç”±çˆ¶èœå•å–æ¶ˆå½“å‰èœå•çš„çŠ¶æ€ã€‚
+		// å› ä¸ºå¦‚æœæœ‰å­èœå•ï¼Œå¿…é¡»åœ¨å­èœå•å…³é—­åæ‰èƒ½å…³é—­æ¿€æ´»ã€‚
 
 		if (!this.subControl)
 			this.state("hover", false);
@@ -268,7 +268,7 @@ var MenuItem = TreeControl.Item.extend({
 
 	showSubMenu: function () {
 
-		// Ê¹ÓÃ¸¸²Ëµ¥´ò¿ª±¾²Ëµ¥£¬ÏÔÊ¾×Ó²Ëµ¥¡£
+		// ä½¿ç”¨çˆ¶èœå•æ‰“å¼€æœ¬èœå•ï¼Œæ˜¾ç¤ºå­èœå•ã€‚
 		this.parentControl && this.parentControl.showSubMenu(this);
 
 		return this;
@@ -276,7 +276,7 @@ var MenuItem = TreeControl.Item.extend({
 
 	hideSubMenu: function () {
 
-		// Ê¹ÓÃ¸¸²Ëµ¥´ò¿ª±¾²Ëµ¥£¬ÏÔÊ¾×Ó²Ëµ¥¡£
+		// ä½¿ç”¨çˆ¶èœå•æ‰“å¼€æœ¬èœå•ï¼Œæ˜¾ç¤ºå­èœå•ã€‚
 		this.parentControl && this.parentControl.hideSubMenu(this);
 
 		return this;
@@ -304,7 +304,7 @@ var Toolbar = Control.extend({
 		this.update();
 	},
 
-	// ¸ù¾İ items ÖØĞÂÉú³É²Ëµ¥Ïî¡£ 
+	// æ ¹æ® items é‡æ–°ç”Ÿæˆèœå•é¡¹ã€‚ 
 	update: function () {
 
 	}
