@@ -82,12 +82,6 @@
 .icon-checkbox:before {
 	content: "\e0c6";
 }
-.icon-checkbox-unchecked:before {
-	content: "\e0c7";
-}
-.icon-checkbox-partial:before {
-	content: "\e0c8";
-}
 .icon-radio-checked:before {
 	content: "\e0c9";
 }
@@ -132,21 +126,6 @@
 }
 .icon-warning:before {
 	content: "\e13d";
-}
-.icon-spin:before {
-	content: "\e1e0";
-}
-.icon-plus-2:before {
-	content: "\e1c9";
-}
-.icon-minus-2:before {
-	content: "\e1cb";
-}
-.icon-checkmark-2:before {
-	content: "\e1b2";
-}
-.icon-x:before {
-	content: "\e1b4";
 }
 .icon-arrow-right:before {
 	content: "\e09f";
@@ -199,13 +178,10 @@
 .icon-untitled-7:before {
 	content: "\f063";
 }
-.icon-refresh:before {
-	content: "\f021";
-}
-.icon-plus-3:before {
+.icon-plus-2:before {
 	content: "\f067";
 }
-.icon-minus-3:before {
+.icon-minus-2:before {
 	content: "\f068";
 }
 .icon-untitled-8:before {
@@ -228,4 +204,76 @@
 }
 .icon-top:before {
 	content: "\f0d8";
+}
+.icon-untitled-9:before {
+	content: "\f002";
+}
+.icon-untitled-10:before {
+	content: "\f040";
+}
+.icon-untitled-11:before {
+	content: "\f044";
+}
+.icon-untitled-12:before {
+	content: "\f05a";
+}
+.icon-untitled-13:before {
+	content: "\f059";
+}
+.icon-untitled-14:before {
+	content: "\f058";
+}
+.icon-untitled-15:before {
+	content: "\f057";
+}
+.icon-untitled-16:before {
+	content: "\f05e";
+}
+.icon-checkbox-unchecked:before {
+	content: "\e0c7";
+}
+.icon-checkmark-2:before {
+	content: "\e002";
+}
+.icon-cancel-3:before {
+	content: "\e003";
+}
+.icon-cog:before {
+	content: "\e004";
+}
+.icon-left-to-right:before {
+	content: "\e005";
+}
+.icon-expand:before {
+	content: "\e006";
+}
+.icon-contract:before {
+	content: "\e007";
+}
+.icon-spin:before {
+	content: "\e1e0";
+}
+.icon-new-window:before {
+	content: "\e008";
+}
+.icon-pin:before {
+	content: "\e009";
+}
+.icon-lock-fill:before {
+	content: "\e00c";
+}
+.icon-unlock-stroke:before {
+	content: "\e00d";
+}
+.icon-pilcrow:before {
+	content: "\e00e";
+}
+.icon-at:before {
+	content: "\e00f";
+}
+.icon-pin2:before {
+	content: "\e00a";
+}
+.icon-none:before {
+	content: "\f000";
 }

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+
+    <link rel="stylesheet" type="text/css" href="../default.css" />
+    <link rel="stylesheet" type="text/css" href="icomoon/style.css" />
+    <link rel="stylesheet" type="text/css" href="../default.js" />
+</head>
+<body>
+	<div id="topbar">
+
+        <div class="right">
+            <span class="icon icon-search systemtext"></span>
+            <input id="search" type="text" placeholder="快速启动(Ctrl+Q)" title="输入命令或文件以快速启动...">
+        </div>
+
+        <div id="menu" class="toolbar systemtext">
+            <a href="#" class="toolbar-menubutton">eFly</a>
+            <span class="toolbar-splitter"></span>
+            <a class="toolbar-menubutton toolbar-hover" href="#">文件(F)</a>
+            <a class="toolbar-menubutton" href="#">编辑(E)</a>
+            <a class="toolbar-menubutton" href="#">帮助(H)</a>
+            <span class="toolbar-splitter"></span>
+            <a class="toolbar-button">按钮</a>
+            <a class="toolbar-button toolbar-hover">按钮</a>
+            <span class="toolbar-splitbutton"><a>分隔按钮</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>
+            <span class="toolbar-splitbutton toolbar-hover"><a>分隔按钮</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>
+        </div>
+
+        <ul class="dropdown menu systemtext">
+            <li class="menu-hover"><span class="right icon icon-right menu-submenu"></span><span class="right menu-shortcut">Ctrl+N</span><span class="icon icon-none menu-icon"></span>新建(N)...</li>
+            <li><span class="right icon icon-none menu-submenu"></span><span class="right menu-shortcut">Ctrl+N</span><span class="icon icon-checkbox menu-icon"></span>选择(N)...</li>
+            <li><span class="right icon icon-none menu-submenu"></span><span class="right menu-shortcut">Ctrl+N</span><span class="icon icon-radio-checked menu-icon"></span>选择(N)...</li>
+            <li class="menu-disabled"><span class="right icon icon-right menu-submenu"></span><span class="right menu-shortcut">Ctrl+N</span><span class="icon icon-none menu-icon"></span>选中(N)</li>
+            <li class="menu-seperator"></li>
+            <li><span class="right icon icon-right menu-submenu"></span><span class="icon icon-none menu-icon"></span>关闭(C)...</li>
+        </ul>
+
+    </div>
+    <div id="main" style="width: 900px; height: 400px;  margin-left: 300px;">
+        <div id="middle">
+            <div id="left" style="width: 100px;">
+
+                <div class="nav nav-left">
+                    <div class="item">工具箱</div>
+                    <div class="item">工具箱</div>
+                </div>
+
+                <div class="panel panel-focus">
+                    <div class="panel-header">
+                        <span class="right icon icon-cancel-3"></span>
+                        <span class="right icon icon-pin"></span>
+                        <span class="right icon icon-bottom"></span>
+                        标题
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+
+                <div class="nav-tab">
+                    <a class="toolbar-button">面板1</a>
+                    <span class="toolbar-splitter"></span>
+                    <a class="toolbar-button">面</a>
+                </div>
+
+                <div class="panel panel-focus">
+                    <div class="panel-header">
+                        <span class="right icon icon-cancel-3"></span>
+                        <span class="right icon icon-pin2"></span>
+                        <span class="right icon icon-bottom"></span>
+                        标题
+                    </div>
+                </div>
+
+            </div>
+            <div id="center">
+                <a class="right icon icon-bottom tab-list"></a>
+                <div id="tabs" class="tabbable">
+                    <div class="tab panel-header">
+                        <a href="#" class="icon right icon-cancel tab-close"></a>
+                        theme.html
+                    </div><div class="tab panel-header tab-actived">
+                        <a href="#" class="icon right icon-cancel tab-close"></a>
+                        theme.html
+                    </div><div class="tab panel-header">
+                        <a href="#" class="icon right icon-cancel tab-close"></a>
+                        theme.html
+                    </div>
+                    <div class="tab">
+                        <a href="#" class="icon icon-plus tab-add"></a>
+                    </div>
+                </div>
+
+                <ul class="suggest">
+                    <li class="suggest-hover"><span class="right">ECMA</span><span class="icon icon-none"></span>AAAA</li>
+                    <li><span class="right">ECMA</span><span class="icon icon-none"></span>AAAA</li>
+                    <li><span class="right">ECMA</span><span class="icon icon-none"></span>AAAA</li>
+                </ul>
+
+            </div>
+            <div id="right"></div>
+        </div>
+        <div id="bottom">
+
+            <div class="nav nav-bottom">
+                <div class="item">工具箱</div>
+                <div class="item">工具箱</div>
+            </div>
+
+
+        </div>
+    </div>
+    <div id="statusbar">
+        <div class="right">
+            <span id="col">行 101</span>
+            <span id="row">列 29</span>
+            <span id="sel">选中 123</span>
+            <span id="info">文本</span>
+        </div>
+        <span id="statustext">就绪</span>
+    </div>
+</body>
+</html>
