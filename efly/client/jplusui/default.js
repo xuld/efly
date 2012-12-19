@@ -294,21 +294,9 @@ var MenuSeperator = MenuItem.extend({
 
 
 
-var Toolbar = Control.extend({
 
-	items: null,
 
-	init: function (options) {
-		this.items = options.items;
 
-		this.update();
-	},
 
-	// 根据 items 重新生成菜单项。 
-	update: function () {
-
-	}
-
-});
 
 

@@ -34,6 +34,14 @@
     float: right;
 }
 
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
 .dropdown {
     position: absolute;
     -webkit-box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.65);
@@ -301,6 +309,60 @@
     left: 0;
 }
 
+/* 搜索框 */
+
+.searchtextbox {
+    border: 0;
+    padding: 4px 24px 4px 2px;
+    width: 200px;
+    font-family: 'Monaco','Menlo','Ubuntu Mono','Consolas','source-code-pro',monospace;
+    margin-right: 2px;
+    background: #4F4F4F;
+    vertical-align: middle;
+}
+
+.searchtextbox:hover, .searchtextbox:focus, .icon-search:hover + .searchtextbox {
+    background: #5a5858;
+    color: #f1f1f1;
+}
+
+.icon-search {
+    position: absolute;
+    right: 1px;
+    top: 2px;
+    width: 20px;
+    padding-left: 5px;
+}
+
+.icon-search:hover {
+    opacity: 0.8;
+}
+
+.icon-search:active {
+    right: 0;
+    top: 3px;
+}
+
+/* 状态栏 */
+.statusbar {
+    height: 26px;
+    background: #007ACC;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    position: absolute;
+    bottom: 0;
+}
+
+.statusbar-label {
+    padding-right: 50px;
+}
+
+.statusbar-text, .statusbar-info {
+    padding: 0 5px;
+}
+
+
 /*************************** 
  * 全局 
  ***************************/
@@ -340,54 +402,3 @@ a {
 /*************************** 
  * 页面 
  ***************************/
-
-/* 搜索框 */
-
-#search {
-    border: 0;
-    padding: 4px 24px 4px 2px;
-    width: 200px;
-    font-family: 'Monaco','Menlo','Ubuntu Mono','Consolas','source-code-pro',monospace;
-    margin-right: 2px;
-    background: #4F4F4F;
-    vertical-align: middle;
-}
-
-#search:hover, #search:focus, .icon-search:hover + #search {
-    background: #5a5858;
-    color: #f1f1f1;
-}
-
-.icon-search {
-    position: absolute;
-    right: 1px;
-    top: 2px;
-    width: 20px;
-    padding-left: 5px;
-}
-
-.icon-search:hover {
-    opacity: 0.8;
-}
-
-.icon-search:active {
-    right: 0;
-    top: 3px;
-}
-
-/* 状态栏 */
-#statusbar {
-    height: 26px;
-    background: #007ACC;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-#col, #row, #sel {
-    padding-right: 50px;
-}
-
-#statustext, #info {
-    padding: 0 5px;
-}

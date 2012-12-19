@@ -9,14 +9,14 @@
     <link rel="stylesheet" type="text/css" href="../default.js" />
 </head>
 <body>
-	<div id="topbar">
+	<div>
 
         <div class="right">
             <span class="icon icon-search systemtext"></span>
-            <input id="search" type="text" placeholder="快速启动(Ctrl+Q)" title="输入命令或文件以快速启动...">
+            <input class="searchtextbox" type="text" placeholder="快速启动(Ctrl+Q)" title="输入命令或文件以快速启动...">
         </div>
 
-        <div id="menu" class="toolbar systemtext">
+        <div class="toolbar systemtext">
             <a href="#" class="toolbar-menubutton">eFly</a>
             <span class="toolbar-splitter"></span>
             <a class="toolbar-menubutton toolbar-hover" href="#">文件(F)</a>
@@ -39,9 +39,9 @@
         </ul>
 
     </div>
-    <div id="main" style="width: 900px; height: 400px;  margin-left: 300px;">
-        <div id="middle">
-            <div id="left" style="width: 100px;">
+    <div style="width: 900px; height: 400px;  margin-left: 300px;">
+        <div>
+            <div style="width: 100px;">
 
                 <div class="nav nav-left">
                     <div class="item">工具箱</div>
@@ -76,7 +76,7 @@
                 </div>
 
             </div>
-            <div id="center">
+            <div>
                 <a class="right icon icon-bottom tab-list"></a>
                 <div id="tabs" class="tabbable">
                     <div class="tab panel-header">
@@ -105,9 +105,9 @@
                 </div>
 
             </div>
-            <div id="right"></div>
+            <div></div>
         </div>
-        <div id="bottom">
+        <div>
 
             <div class="nav nav-bottom">
                 <div class="item">工具箱</div>
@@ -117,14 +117,14 @@
 
         </div>
     </div>
-    <div id="statusbar">
+    <div class="statusbar">
         <div class="right">
-            <span id="col">行 101</span>
-            <span id="row">列 29</span>
-            <span id="sel">选中 123</span>
-            <span id="info">文本</span>
+            <span class="statusbar-label">行 101</span>
+            <span class="statusbar-label">列 29</span>
+            <span class="statusbar-label">选中 123</span>
+            <span class="statusbar-info">文本</span>
         </div>
-        <span id="statustext">就绪</span>
+        <span class="statusbar-text">就绪</span>
     </div>
 </body>
 </html>
