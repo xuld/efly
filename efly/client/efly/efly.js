@@ -144,9 +144,30 @@ var IDE = Class({
 	},
 
 	/**
+	 * 获取指定名字的命令对象。
+	 */
+	getCommand: function (commandName) {
+		
+	},
+
+	/**
 	 * 在当前 IDE 执行一个命令。
 	 */
 	execCommand: function (commandName, args) {
+
+	},
+
+	/**
+	 * 查询命令的状态。
+	 */
+	queryCommandState: function (commandName) {
+
+	},
+
+	/**
+	 * 查询命令的值。
+	 */
+	queryCommandValue: function (commandName) {
 
 	},
 
@@ -419,6 +440,25 @@ BorderLayoutContainer.Region = Control.extend({
 var TabControl = Control.extend({
 
 	constructor: function (container) {
+
+	}
+
+});
+
+/**
+ * 表示一个命令。
+ */
+var Command = Class({
+
+	name: null,
+
+	exec: Function.empty,
+
+	state: null,
+
+	shortcut: null,
+
+	constructor: function (name, action, state) {
 
 	}
 
