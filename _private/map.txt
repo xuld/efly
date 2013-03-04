@@ -1,0 +1,3 @@
+configs: 存放配置
+plugins: 存放插件
+themes:  存放主题

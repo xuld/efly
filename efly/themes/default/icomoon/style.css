@@ -1,0 +1,279 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.svg#icomoon') format('svg'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+	font-family: 'icomoon';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-play:before {
+	content: "\e00b";
+}
+.icon-floppy:before {
+	content: "\e195";
+}
+.icon-copy:before {
+	content: "\e017";
+}
+.icon-arrow-left:before {
+	content: "\e0bf";
+}
+.icon-home:before {
+	content: "\e000";
+}
+.icon-file:before {
+	content: "\e014";
+}
+.icon-folder:before {
+	content: "\e018";
+}
+.icon-folder-2:before {
+	content: "\e019";
+}
+.icon-user:before {
+	content: "\e042";
+}
+.icon-zoom-in:before {
+	content: "\e048";
+}
+.icon-zoom-out:before {
+	content: "\e049";
+}
+.icon-help:before {
+	content: "\e091";
+}
+.icon-cancel:before {
+	content: "\e095";
+}
+.icon-checkmark:before {
+	content: "\e096";
+}
+.icon-minus:before {
+	content: "\e097";
+}
+.icon-plus:before {
+	content: "\e098";
+}
+.icon-cancel-2:before {
+	content: "\e094";
+}
+.icon-checkbox:before {
+	content: "\e0c6";
+}
+.icon-radio-checked:before {
+	content: "\e0c9";
+}
+.icon-radio-unchecked:before {
+	content: "\e0ca";
+}
+.icon-new-tab:before {
+	content: "\e0d3";
+}
+.icon-new-tab-2:before {
+	content: "\e0d4";
+}
+.icon-code:before {
+	content: "\e0d6";
+}
+.icon-chrome:before {
+	content: "\e137";
+}
+.icon-firefox:before {
+	content: "\e138";
+}
+.icon-IE:before {
+	content: "\e139";
+}
+.icon-opera:before {
+	content: "\e13a";
+}
+.icon-safari:before {
+	content: "\e13b";
+}
+.icon-html5:before {
+	content: "\e134";
+}
+.icon-file-css:before {
+	content: "\e133";
+}
+.icon-libreoffice:before {
+	content: "\e12b";
+}
+.icon-file-xml:before {
+	content: "\e132";
+}
+.icon-warning:before {
+	content: "\e13d";
+}
+.icon-arrow-right:before {
+	content: "\e09f";
+}
+.icon-bottom:before {
+	content: "\f0d7";
+}
+.icon-left:before {
+	content: "\f0d9";
+}
+.icon-right:before {
+	content: "\f0da";
+}
+.icon-updown-down:before {
+	content: "\f0dd";
+}
+.icon-updown-up:before {
+	content: "\f0de";
+}
+.icon-updown:before {
+	content: "\f0dc";
+}
+.icon-split:before {
+	content: "\f0db";
+}
+.icon-untitled:before {
+	content: "\f0e2";
+}
+.icon-next:before {
+	content: "\f054";
+}
+.icon-prev:before {
+	content: "\f053";
+}
+.icon-untitled-2:before {
+	content: "\f077";
+}
+.icon-untitled-3:before {
+	content: "\f078";
+}
+.icon-untitled-4:before {
+	content: "\f060";
+}
+.icon-untitled-5:before {
+	content: "\f061";
+}
+.icon-untitled-6:before {
+	content: "\f062";
+}
+.icon-untitled-7:before {
+	content: "\f063";
+}
+.icon-plus-2:before {
+	content: "\f067";
+}
+.icon-minus-2:before {
+	content: "\f068";
+}
+.icon-untitled-8:before {
+	content: "\f0e8";
+}
+.icon-cut:before {
+	content: "\f0c4";
+}
+.icon-copy-2:before {
+	content: "\f0c5";
+}
+.icon-save:before {
+	content: "\f0c7";
+}
+.icon-search:before {
+	content: "\e1000";
+}
+.icon-wrench:before {
+	content: "\e001";
+}
+.icon-top:before {
+	content: "\f0d8";
+}
+.icon-untitled-9:before {
+	content: "\f002";
+}
+.icon-untitled-10:before {
+	content: "\f040";
+}
+.icon-untitled-11:before {
+	content: "\f044";
+}
+.icon-untitled-12:before {
+	content: "\f05a";
+}
+.icon-untitled-13:before {
+	content: "\f059";
+}
+.icon-untitled-14:before {
+	content: "\f058";
+}
+.icon-untitled-15:before {
+	content: "\f057";
+}
+.icon-untitled-16:before {
+	content: "\f05e";
+}
+.icon-checkbox-unchecked:before {
+	content: "\e0c7";
+}
+.icon-checkmark-2:before {
+	content: "\e002";
+}
+.icon-cancel-3:before {
+	content: "\e003";
+}
+.icon-cog:before {
+	content: "\e004";
+}
+.icon-left-to-right:before {
+	content: "\e005";
+}
+.icon-expand:before {
+	content: "\e006";
+}
+.icon-contract:before {
+	content: "\e007";
+}
+.icon-spin:before {
+	content: "\e1e0";
+}
+.icon-new-window:before {
+	content: "\e008";
+}
+.icon-pin:before {
+	content: "\e009";
+}
+.icon-lock-fill:before {
+	content: "\e00c";
+}
+.icon-unlock-stroke:before {
+	content: "\e00d";
+}
+.icon-pilcrow:before {
+	content: "\e00e";
+}
+.icon-at:before {
+	content: "\e00f";
+}
+.icon-pin2:before {
+	content: "\e00a";
+}
+.icon-none:before {
+	content: "\f000";
+}
