@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <title>Editor</title>
 
-    <link rel="stylesheet" type="text/css" href="../../themes/default/index.css" />
-    <link rel="stylesheet" type="text/css" href="_icomoon/style.css" />
-    <script src="../jplus-efly.js" type="text/javascript"></script>
-    <script src="../default.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../ui.css" />
+    <link rel="stylesheet" type="text/css" href="icomoon/style.css" />
 </head>
 <body>
-    <div id="topbar">
+	<div>
 
         <div class="right">
             <span class="icon icon-search systemtext"></span>
-            <input id="search" type="text" placeholder="快速启动(Ctrl+Q)" title="输入命令或文件以快速启动...">
+            <input class="searchtextbox" type="text" placeholder="快速启动(Ctrl+Q)" title="输入命令或文件以快速启动...">
         </div>
 
-        <div id="menu" class="toolbar systemtext">
-           <!-- <a href="#" class="toolbar-menubutton">eFly</a>
+        <div class="toolbar systemtext">
+            <a href="#" class="toolbar-menubutton">eFly</a>
             <span class="toolbar-splitter"></span>
             <a class="toolbar-menubutton toolbar-hover" href="#">文件(F)</a>
             <a class="toolbar-menubutton" href="#">编辑(E)</a>
@@ -27,45 +25,8 @@
             <a class="toolbar-button">按钮</a>
             <a class="toolbar-button toolbar-hover">按钮</a>
             <span class="toolbar-splitbutton"><a>分隔按钮</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>
-            <span class="toolbar-splitbutton toolbar-hover"><a>分隔按钮</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>-->
+            <span class="toolbar-splitbutton toolbar-hover"><a>分隔按钮</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>
         </div>
-
-        <script>
-
-            var toolbar = new Toolbar({
-                dom: Dom.get('menu'),
-                items: {
-                    'File': {
-                        type: 'menubutton',
-                        text: '文件',
-                        accessKey: 'F',
-                        enable: true,
-                        items: {
-                            'New': {
-                                text: '新建项目',
-                                shortcutKey: 'Ctrl+N'
-                            }
-                        }
-                    },
-                    'Edit': {
-
-                    },
-                    'Help': {
-                        type: 'menubutton',
-                        text: '帮助',
-                        accessKey: 'H',
-                        items: {
-                            'About': {
-                                text: '关于',
-                                accessKey: 'A',
-                                shortcutKey: 'Ctrl+N'
-                            }
-                        }
-                    }
-                }
-            });
-
-        </script>
 
         <ul class="dropdown menu systemtext">
             <li class="menu-hover"><span class="right icon icon-right menu-submenu"></span><span class="right menu-shortcut">Ctrl+N</span><span class="icon icon-none menu-icon"></span>新建(N)...</li>
@@ -77,9 +38,9 @@
         </ul>
 
     </div>
-    <div id="main" style="width: 900px; height: 400px; margin-left: 300px;">
-        <div id="middle">
-            <div id="left" style="width: 100px;">
+    <div style="width: 900px; height: 400px;  margin-left: 300px;">
+        <div>
+            <div style="width: 100px;">
 
                 <div class="nav nav-left">
                     <div class="item">工具箱</div>
@@ -94,6 +55,7 @@
                         标题
                     </div>
                     <div class="panel-body">
+
                     </div>
                 </div>
 
@@ -113,18 +75,16 @@
                 </div>
 
             </div>
-            <div id="center">
+            <div>
                 <a class="right icon icon-bottom tab-list"></a>
                 <div id="tabs" class="tabbable">
                     <div class="tab panel-header">
                         <a href="#" class="icon right icon-cancel tab-close"></a>
                         theme.html
-                    </div>
-                    <div class="tab panel-header tab-actived">
+                    </div><div class="tab panel-header tab-actived">
                         <a href="#" class="icon right icon-cancel tab-close"></a>
                         theme.html
-                    </div>
-                    <div class="tab panel-header">
+                    </div><div class="tab panel-header">
                         <a href="#" class="icon right icon-cancel tab-close"></a>
                         theme.html
                     </div>
@@ -140,12 +100,13 @@
                 </ul>
 
                 <div class="splitter">
+
                 </div>
 
             </div>
-            <div id="right"></div>
+            <div></div>
         </div>
-        <div id="bottom">
+        <div>
 
             <div class="nav nav-bottom">
                 <div class="item">工具箱</div>
@@ -155,14 +116,14 @@
 
         </div>
     </div>
-    <div id="statusbar">
+    <div class="statusbar">
         <div class="right">
-            <span id="col">行 101</span>
-            <span id="row">列 29</span>
-            <span id="sel">选中 123</span>
-            <span id="info">文本</span>
+            <span class="statusbar-label">行 101</span>
+            <span class="statusbar-label">列 29</span>
+            <span class="statusbar-label">选中 123</span>
+            <span class="statusbar-info">文本</span>
         </div>
-        <span id="statustext">就绪</span>
+        <span class="statusbar-text">就绪</span>
     </div>
 </body>
 </html>

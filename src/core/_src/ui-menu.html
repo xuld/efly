@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editor</title>
+
+    <link rel="stylesheet" type="text/css" href="../ui.css" />
+    <link rel="stylesheet" type="text/css" href="icomoon/style.css" />
+    <script src="../jplus-efly.js" type="text/javascript"></script>
+    <script src="ui/ide.js" type="text/javascript"></script>
+    <script src="ui/menu.js" type="text/javascript"></script>
+</head>
+<body>
+    <script>
+
+        var menu = new Menu();
+
+        menu.set({
+
+            'a': {
+                text: '按钮1',
+                icon: 'none',
+                shortcutKey: 'Ctrl+A',
+                subMenu: {
+                    'b': {
+                        text: '按钮4',
+                        icon: 'none',
+                        shortcutKey: 'Ctrl+A'
+                    },
+                    'zzzz': {
+                        text: '按钮4',
+                        icon: 'none',
+                        shortcutKey: 'Ctrl+A'
+                    }
+                }
+            },
+
+            'b': {
+                text: '按钮6',
+                icon: 'none',
+                shortcutKey: 'Ctrl+A'
+            }
+
+        });
+
+        menu.renderTo('body');
+
+        document.oncontextmenu = function (e) {
+            menu.showAt({ x: e.pageX, y: e.pageY });
+            return false;
+        };
+
+    </script>
+</body>
+</html>
