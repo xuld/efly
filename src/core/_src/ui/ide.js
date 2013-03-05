@@ -15,36 +15,6 @@ var ide = {
     options: null,
 
     /**
-	 * 当前 IDE 的搜索框部分。
-	 */
-    searchTextBox: null,
-
-    /**
-	 * 当前 IDE 的工具条部分。
-	 */
-    toolbar: null,
-
-    /**
-	 * 当前 IDE 的主体部分。
-	 */
-    main: null,
-
-    /**
-	 * 当前 IDE 的状态栏部分。
-	 */
-    statusbar: null,
-
-    /**
-	 * 当前已打开的选项卡。
-	 */
-    tabs: null,
-
-    /**
-	 * 当前已打开的面板。
-	 */
-    panels: null,
-
-    /**
 	 * 根据 options 更新编辑器状态。
 	 */
     update: function (options) {
@@ -96,22 +66,6 @@ var ide = {
         // 初始化对象。
         this.elem = containerNode;
 
-        // 初始化各个控件。
-
-        this.searchTextBox = new SearchTextBox().addClass('right').appendTo(containerNode);
-        this.searchTextBox.onSearch = function (text) {
-            alert('搜索 ' + text);
-        };
-
-        this.toolbar = new Toolbar().appendTo(containerNode);
-        this.main = new BorderLayoutContainer().appendTo(containerNode);
-        this.statusbar = new Statusbar().appendTo(containerNode);
-
-        this.tabs = new TabControl(this.main.center);
-        this.panels = {};
-
-        // 应用配置。
-        this.update(options);
     },
 
     /**

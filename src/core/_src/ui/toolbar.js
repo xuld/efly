@@ -10,13 +10,15 @@ var Toolbar = Control.extend({
         return node;
     },
 
+	hovering: false,
+
     init: function () {
 
         this.itemOn('mouseover', function (item, e) {
 
             // 隐藏之前的项。
             if (this.currentMenu) {
-                this.currentMenu.className = '';
+            	this.currentMenu.className = item.className.replace('toolbar-hover ', '');
 
                 // 同时隐藏子菜单。
                 this.hideSubMenu();
@@ -26,12 +28,35 @@ var Toolbar = Control.extend({
             this.currentMenu = item;
 
             // 高亮选中项。
-            item.className = 'toolbar-hover';
+            item.className = 'toolbar-hover ' + item.className;
 
-            this.showSubMenu(item);
+            if (this.hovering) {
+            	this.showSubMenu(item);
+            }
 
         }, this);
 
+        this.itemOn('click', function (item, e) {
+
+        	// 隐藏之前的项。
+        	if (this.currentMenu) {
+        		this.currentMenu.className = item.className.replace('toolbar-hover ', '');
+
+        		// 同时隐藏子菜单。
+        		this.hideSubMenu();
+        	}
+
+        	// 设置新的项。
+        	this.currentMenu = item;
+
+        	// 高亮选中项。
+        	item.className = item.className.replace('toolbar-hover ', '');
+
+        	if (this.hovering) {
+        		this.showSubMenu(item);
+        	}
+
+        }, this);
 
     },
 
@@ -41,6 +66,8 @@ var Toolbar = Control.extend({
         var data = this.items[item.getAttribute('data-key')].subMenu;
 
         if (data) {
+
+        	this.hovering = true;
 
             // 如果之前没有显示过子菜单，则创建一个。
             if (this.subMenu) {
@@ -57,6 +84,8 @@ var Toolbar = Control.extend({
     },
 
     hideSubMenu: function () {
+
+    	this.hovering = false;
 
         // 如果有子菜单，则隐藏子菜单。
         if (this.subMenu) {
@@ -89,12 +118,12 @@ var Toolbar = Control.extend({
             data = items[key];
 
             if (data === '-') {
-                html.push('<span class="toolbar-splitter"></span>');
+                html.push('<span class="toolbar-splitter"></span> ');
             } else if (data.type === 'splitbutton') {
-                html.push('<span data-key="', key, '" class="toolbar-splitbutton"><a class="toolbar-', data.type, '" href="javascript:;"', ide.queryCommandState(data.command) === false ? ' class="toolbar-disabled"' : '', '>', data.text, '</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span>');
+                html.push('<span data-key="', key, '" class="toolbar-splitbutton"><a class="toolbar-', data.type, '" href="javascript:;"', ide.queryCommandState(data.command) === false ? ' class="toolbar-disabled"' : '', '>', data.text, '</a><span class="toolbar-splitter"></span><span class="icon icon-bottom"></span></span> ');
             } else {
 
-                html.push('<a data-key="', key, '" class="toolbar-', data.type, '" href="javascript:;"', ide.queryCommandState(data.command) === false ? ' class="toolbar-disabled"' : '', '>', data.text, '</a>');
+                html.push('<a data-key="', key, '" class="toolbar-', data.type, '" href="javascript:;"', ide.queryCommandState(data.command) === false ? ' class="toolbar-disabled"' : '', '>', data.text, '</a> ');
 
             }
         }
