@@ -15,39 +15,6 @@ var ide = {
     options: null,
 
     /**
-	 * 根据 options 更新编辑器状态。
-	 */
-    update: function (options) {
-
-        this.options = options;
-
-        if (options.toolbar === false) {
-            this.toolbar.hide();
-        } else {
-            this.toolbar.update(options.menu);
-        }
-
-        if (options.statusbar === false) {
-            this.statusbar.hide();
-        }
-
-        this.onResize();
-
-        for (var panel in options.panels) {
-
-            // 如果这个面板没有创建过，则创建一个。
-            if (!this.panels[panel]) {
-                this.panels[panel] = this.createPanel(panel);
-            }
-
-            // 更新面板的配置。
-            this.panels[panel].update(options.panels[panel]);
-        }
-
-
-    },
-
-    /**
 	 * 创建一个面板。
 	 */
     createPanel: function (name) {

@@ -1,38 +1,44 @@
 ﻿
+//#include ide.js
+//#include toolbar.js
+//#include searchtextbox.js
+//#include borderlayoutcontainer.js
+//#include statusbar.js
+
 /**
  * 表示一个搜索框。
  */
 var ViewPort = Control.extend({
 
 	/**
-	 * 当前 IDE 的搜索框部分。
+	 * 搜索框部分。
 	 */
 	searchTextBox: null,
 
 	/**
-	 * 当前 IDE 的工具条部分。
+	 * 工具条部分。
 	 */
 	toolbar: null,
 
 	/**
-	 * 当前 IDE 的主体部分。
+	 * 主体部分。
 	 */
 	main: null,
 
 	/**
-	 * 当前 IDE 的状态栏部分。
+	 * 状态栏部分。
 	 */
 	statusbar: null,
 
-	/**
-	 * 当前已打开的选项卡。
-	 */
-	tabs: null,
+	///**
+	// * 当前已打开的选项卡。
+	// */
+	//tabs: null,
 
-	/**
-	 * 当前已打开的面板。
-	 */
-	panels: null,
+	///**
+	// * 当前已打开的面板。
+	// */
+	//panels: null,
 
 	create: function () {
 		var div = document.createElement('div');
@@ -40,26 +46,59 @@ var ViewPort = Control.extend({
 		return div;
 	},
 
-	init: function () {
+	init: function (options) {
 
 		// 初始化各个控件。
 
-		this.searchTextBox = new SearchTextBox().addClass('right').appendTo(containerNode);
+		this.searchTextBox = new SearchTextBox().renderTo(this.elem);
 		this.searchTextBox.onSearch = function (text) {
 			alert('搜索 ' + text);
 		};
 
-		this.toolbar = new Toolbar().appendTo(containerNode);
-		this.main = new BorderLayoutContainer().appendTo(containerNode);
-		this.statusbar = new Statusbar().appendTo(containerNode);
+		this.toolbar = new Toolbar().renderTo(this.elem);
+		this.main = new BorderLayoutContainer().renderTo(this.elem);
+		this.statusbar = new Statusbar().renderTo(this.elem);
 
-		this.tabs = new TabControl(this.main.center);
-		this.panels = {};
+		//this.tabs = new TabControl(this.main.center);
+		//this.panels = {};
 
 		// 应用配置。
 		this.update(options);
 	},
 
-	onSearch: Function.empty
+    /**
+	 * 根据 options 更新编辑器状态。
+	 */
+	update: function (options) {
+
+		return
+
+        this.options = options;
+
+        if (options.toolbar === false) {
+            this.toolbar.hide();
+        } else {
+            this.toolbar.update(options.menu);
+        }
+
+        if (options.statusbar === false) {
+            this.statusbar.hide();
+        }
+
+        this.onResize();
+
+        for (var panel in options.panels) {
+
+            // 如果这个面板没有创建过，则创建一个。
+            if (!this.panels[panel]) {
+                this.panels[panel] = this.createPanel(panel);
+            }
+
+            // 更新面板的配置。
+            this.panels[panel].update(options.panels[panel]);
+        }
+
+
+    }
 
 });
