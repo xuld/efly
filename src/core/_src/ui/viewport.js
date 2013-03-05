@@ -6,7 +6,7 @@
 //#include statusbar.js
 
 /**
- * 表示一个搜索框。
+ * 表示一个视图窗口。
  */
 var ViewPort = Control.extend({
 
@@ -18,7 +18,7 @@ var ViewPort = Control.extend({
 	/**
 	 * 工具条部分。
 	 */
-	toolbar: null,
+	systemMenu: null,
 
 	/**
 	 * 主体部分。
@@ -30,10 +30,10 @@ var ViewPort = Control.extend({
 	 */
 	statusbar: null,
 
-	///**
-	// * 当前已打开的选项卡。
-	// */
-	//tabs: null,
+	/**
+	 * 当前已打开的选项卡。
+	 */
+	tabs: null,
 
 	///**
 	// * 当前已打开的面板。
@@ -46,7 +46,7 @@ var ViewPort = Control.extend({
 		return div;
 	},
 
-	init: function (options) {
+	init: function () {
 
 		// 初始化各个控件。
 
@@ -55,50 +55,44 @@ var ViewPort = Control.extend({
 			alert('搜索 ' + text);
 		};
 
-		this.toolbar = new Toolbar().renderTo(this.elem);
+		this.systemMenu = new Toolbar().renderTo(this.elem);
 		this.main = new BorderLayoutContainer().renderTo(this.elem);
 		this.statusbar = new Statusbar().renderTo(this.elem);
 
-		//this.tabs = new TabControl(this.main.center);
+		this.tabs = this.main.center;
 		//this.panels = {};
-
-		// 应用配置。
-		this.update(options);
 	},
 
     /**
 	 * 根据 options 更新编辑器状态。
 	 */
-	update: function (options) {
+	set: function (configs) {
 
-		return
+		//this.configs = configs;
 
-        this.options = options;
-
-        if (options.toolbar === false) {
-            this.toolbar.hide();
-        } else {
-            this.toolbar.update(options.menu);
+		if (configs.showSystemMenu === false) {
+			this.systemMenu.elem.style.display = 'none';
+		} else {
+			this.systemMenu.elem.style.display = '';
+			this.systemMenu.set(configs.systemMenu);
         }
 
-        if (options.statusbar === false) {
-            this.statusbar.hide();
-        }
+		if (configs.showStatusbar === false) {
+			this.statusbar.elem.style.display = 'none';
+		} else {
+			this.statusbar.elem.style.display = '';
+		}
 
-        this.onResize();
+		this.main.set(configs.regions || {});
 
-        for (var panel in options.panels) {
+		var docSize = Dom.getSize(document);
+		this.resizeTo(docSize.x, docSize.y);
 
-            // 如果这个面板没有创建过，则创建一个。
-            if (!this.panels[panel]) {
-                this.panels[panel] = this.createPanel(panel);
-            }
+	},
 
-            // 更新面板的配置。
-            this.panels[panel].update(options.panels[panel]);
-        }
-
-
-    }
+	resizeTo: function (width, height) {
+		this.statusbar.elem.style.width = width + 'px';
+		this.main.resizeTo(width, height - this.systemMenu.elem.offsetHeight - this.statusbar.elem.offsetHeight);
+	}
 
 });

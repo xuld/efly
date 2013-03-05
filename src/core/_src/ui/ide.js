@@ -1,4 +1,6 @@
 ﻿
+//#include panel.js
+
 /**
  * 表示一个集成开发环境。
  */
@@ -13,20 +15,6 @@ var ide = {
 	 * 当前 IDE 的配置对象。
 	 */
     options: null,
-
-    /**
-	 * 创建一个面板。
-	 */
-    createPanel: function (name) {
-
-    },
-
-    /**
-	 * 改变编辑器容器大小后执行。
-	 */
-    onResize: function () {
-        this.main.resizeTo(this.elem.offsetWidth, this.elem.offsetHeight - this.toolbar.elem.offsetHeight - this.statusbar.elem.offsetHeight);
-    },
 
     init: function (containerNode, options) {
 
@@ -106,11 +94,15 @@ var ide = {
 
     },
 
+    getPanelName: function (panelId) {
+    	return panelId;
+    },
+
     /**
 	 * 获取指定名字的面板。
 	 */
     getPanel: function (panelName, createIfNotExisit) {
-
+    	return new Panel('面板', '测试');
     },
 
     /**
