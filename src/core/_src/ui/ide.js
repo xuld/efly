@@ -14,7 +14,7 @@ var ide = {
     /**
 	 * 当前 IDE 的配置对象。
 	 */
-    options: null,
+    configs: Configs,
 
     init: function (containerNode, options) {
 
@@ -102,7 +102,7 @@ var ide = {
 	 * 获取指定名字的面板。
 	 */
     getPanel: function (panelName, createIfNotExisit) {
-    	return new Panel('面板', '测试');
+    	return new Panel(Dom.parseNode('<div>内容</div>'));
     },
 
     /**
@@ -131,6 +131,10 @@ var ide = {
 	 */
     unregisterPlugin: function (pluginObject) {
 
+    },
+
+    langs: {
+    	"close": "关闭"
     }
 
 };

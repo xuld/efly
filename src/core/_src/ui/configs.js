@@ -34,18 +34,18 @@ var Configs = {
 		"regions": {
 			"borderWidth": 10,
 			"left": {
-				"panels": ["SolutionExplorer", "S\no\nl\nu\nt\nionExplorer2"],
+				"panels": ["工具栏", "工具栏\n2"],
 				"width": 124,
-				"currentPanel": "SolutionExplorer",
+				"currentPanel": "工具栏",
 				"collspaned": true
 			},
 			"right": {
-				"panels": ["SolutionExplorer", "S\no\nl\nu\nt\nionExplorer2"],
+				"panels": ["工具栏", "工具栏\n2"],
 				"width": 124,
 				"collspaned": true
 			},
 			"bottom": {
-				"panels": ["Find", "ASDASDasdaSD"],
+				"panels": ["查找和替换", "控制台"],
 				"height": 124,
 				"collspaned": true
 			}

@@ -2,30 +2,14 @@
 /**
  * 表示一个面板。
  */
-var Panel = Class({
+var Panel = Control.extend({
 
-	header: null,
+	tpl: '<div></div>'
 
-	/**
-	 * 当前面板的主体。
-	 */
-	content: null,
+	//onShow: Function.empty,
 
-	constructor: function (header, content) {
-		this.header = header;
-		this.content = content;
-	},
+	//onHide: Function.empty,
 
-	onResize: Function.empty,
-
-	resizeTo: function (width, height) {
-		var style = this.content.style;
-		style.width = width + 'px';
-
-		height -= this.header.offsetHeight;
-		style.height = height + 'px';
-
-		this.onResize(width, height);
-	}
+	//onResize: Function.empty
 
 });

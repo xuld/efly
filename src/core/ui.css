@@ -180,7 +180,7 @@
     height: 20px;
     line-height: 20px;
     border-bottom: 5px solid transparent;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
 .nav .item:hover {
@@ -197,11 +197,29 @@
 
 .tabbable {
     border-bottom: 2px solid #007ACC;
+    height: 26px;
+    overflow: hidden;
 }
 
+.tabs {
+    *zoom:1;
+}
+
+    .tabs:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+    }
+
 .tab {
-    display: inline-block;
     background: transparent;
+    overflow: hidden;
+    height: 26px;
+    word-wrap: break-word;
+    word-break: break-all;
+    float: left;
 }
 
 .tab:hover {
@@ -209,7 +227,7 @@
 }
 
 .tab-actived, .tab-actived:hover{
-    background: #1C97EA;
+    background: #007ACC;
 }
 
 .tab .tab-close {

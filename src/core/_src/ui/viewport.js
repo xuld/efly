@@ -23,22 +23,12 @@ var ViewPort = Control.extend({
 	/**
 	 * 主体部分。
 	 */
-	main: null,
+	regions: null,
 
 	/**
 	 * 状态栏部分。
 	 */
 	statusbar: null,
-
-	/**
-	 * 当前已打开的选项卡。
-	 */
-	tabs: null,
-
-	///**
-	// * 当前已打开的面板。
-	// */
-	//panels: null,
 
 	create: function () {
 		var div = document.createElement('div');
@@ -56,11 +46,9 @@ var ViewPort = Control.extend({
 		};
 
 		this.systemMenu = new Toolbar().renderTo(this.elem);
-		this.main = new BorderLayoutContainer().renderTo(this.elem);
+		this.regions = new BorderLayoutContainer().renderTo(this.elem);
 		this.statusbar = new Statusbar().renderTo(this.elem);
 
-		this.tabs = this.main.center;
-		//this.panels = {};
 	},
 
     /**
@@ -83,7 +71,7 @@ var ViewPort = Control.extend({
 			this.statusbar.elem.style.display = '';
 		}
 
-		this.main.set(configs.regions || {});
+		this.regions.set(configs.regions || {});
 
 		var docSize = Dom.getSize(document);
 		this.resizeTo(docSize.x, docSize.y);
@@ -92,7 +80,7 @@ var ViewPort = Control.extend({
 
 	resizeTo: function (width, height) {
 		this.statusbar.elem.style.width = width + 'px';
-		this.main.resizeTo(width, height - this.systemMenu.elem.offsetHeight - this.statusbar.elem.offsetHeight);
+		this.regions.resizeTo(width, height - this.systemMenu.elem.offsetHeight - this.statusbar.elem.offsetHeight);
 	}
 
 });
