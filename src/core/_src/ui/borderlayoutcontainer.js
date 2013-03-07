@@ -28,7 +28,6 @@ var BorderLayoutContainer = Control.extend({
 		var Region = BorderLayoutContainer.Region;
 
 		this.left = new Region(this, 'left');
-		//this.center = new Panel().addClass('absolute').appendTo(this);
 		this.right = new Region(this, 'right');
 		this.bottom = new Region(this, 'bottom');
 

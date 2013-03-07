@@ -8,7 +8,7 @@
 /**
  * 表示一个视图窗口。
  */
-var ViewPort = Control.extend({
+var Viewport = Control.extend({
 
 	/**
 	 * 搜索框部分。

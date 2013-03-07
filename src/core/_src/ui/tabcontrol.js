@@ -62,7 +62,7 @@ var TabControl = Control.extend({
 			var tab;
 
 			// 取消激活当前选项卡。
-
+			
 			if (tab = this.tabs[this.selectedTab]) {
 				Dom.removeClass(tab.header, 'tab-actived');
 
@@ -77,6 +77,12 @@ var TabControl = Control.extend({
 
 				this.tabStack.remove(id);
 				this.tabStack.push(id);
+
+				tab.panel.renderTo(this.body);
+
+				if (tab.panel.onShow) {
+					tab.panel.onShow();
+				}
 
 				// 如果 tab 的标题未显示在 tabs 中，则插入标题。
 				if (!tab.header.parentNode) {
@@ -111,11 +117,6 @@ var TabControl = Control.extend({
 				}
 
 				Dom.addClass(tab.header, 'tab-actived');
-				tab.panel.renderTo(this.body);
-
-				if (tab.panel.onShow) {
-					tab.panel.onShow();
-				}
 
 			}
 
@@ -127,7 +128,8 @@ var TabControl = Control.extend({
 	},
 
 	addEmptyTab: function () {
-		return this.addTab('adgdsdf42323' + Math.random(), 'asd22222222224324234234234234234234' + Math.random(), 'dasdas', ide.getPanel('asdasd'));
+		return ide.execCommand('efly.file.new');
+		//return this.addTab('adgdsdf42323' + Math.random(), 'asd22222222224324234234234234234234' + Math.random(), 'dasdas', ide.getPanel('asdasd'));
 	},
 
 	addTab: function (id, name, title, panel) {
@@ -140,9 +142,10 @@ var TabControl = Control.extend({
 			header.className = 'tab panel-header';
 			header.title = title;
 			header.setAttribute('data-key', id);
-			header.innerHTML = name + '<a class="icon right icon-cancel tab-close" href="#" title="' + ide.langs.close + '"></a>';
+			header.innerHTML = name + '<a class="icon right icon-cancel tab-close" href="#" title="' + ide.lang.close + '"></a>';
 
 			this.tabs[id] = tab = {
+				id: id,
 				header: header,
 				panel: panel
 			};
@@ -154,6 +157,8 @@ var TabControl = Control.extend({
 		}
 
 		this.selectTab(id);
+
+		return tab;
 	},
 
 	removeTab: function (id) {
@@ -226,11 +231,13 @@ var TabControl = Control.extend({
 			}
 
 			if (this.selectedTab === id) {
-				this.selectTab(this.tabStack[this.tabStack.length - 1]);
+				this.selectTab(this.tabStack[this.tabStack.length - 1] || '');
 			}
 
 			delete this.tabs[id];
 		}
+
+		return tab;
 
 	},
 

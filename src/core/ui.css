@@ -251,6 +251,10 @@
     color: #3799db;
 }
 
+.tabpages {
+    position: relative;
+}
+
 /* 智能提示 */
 
 .suggest {

@@ -6,45 +6,42 @@
  */
 var ide = {
 
-    /**
-	 * 包含全部内容的跟节点。
-	 */
-    elem: null,
+	//#region 公共字段
 
     /**
-	 * 当前 IDE 的配置对象。
+	 * 视图对象。
 	 */
-    configs: Configs,
+	view: null,
 
-    init: function (containerNode, options) {
+    /**
+	 * 配置对象。
+	 */
+	configs: null,
 
-        // 初始化对象。
-        this.elem = containerNode;
+	/**
+	 * 语言包。
+	 */
+	lang: null,
 
-    },
+	//#endregion 命令
+	
+	//#region 命令
+
+	commands: {},
 
     /**
 	 * 在当前 IDE 注册一个命令。
 	 */
-    registerCommand: function (commandName, commandAction, language, defaultShortcut) {
-
+	registerCommand: function (commandName, command) {
+		this.commands[commandName] = command;
     },
 
     /**
 	 * 在当前 IDE 注销一个命令。
 	 */
     unregisterCommand: function (commandName) {
-
+    	delete this.commands[commandName];
     },
-
-    /**
-	 * 获取指定名字的命令对象。
-	 */
-    getCommand: function (commandName) {
-
-    },
-
-    commands: {},
 
     /**
 	 * 在当前 IDE 执行一个命令。
@@ -72,6 +69,10 @@ var ide = {
             return commandName.value ? commandName.value() : null;
         }
     },
+
+	//#endregion
+
+	//#region 菜单
 
     /**
 	 * 获取指定名字的菜单。
@@ -105,6 +106,10 @@ var ide = {
     	return new Panel(Dom.parseNode('<div>内容</div>'));
     },
 
+	//#endregion
+
+	//#region 
+
     /**
 	 * 注册一个键盘事件。
 	 */
@@ -118,6 +123,10 @@ var ide = {
     unregisterKey: function (keyName) {
 
     },
+
+	//#endregion
+
+	//#region 
 
     /**
 	 * 注册一个插件。
@@ -133,8 +142,24 @@ var ide = {
 
     },
 
-    langs: {
-    	"close": "关闭"
+	//#endregion
+
+	//#region TAB
+
+    openTab: function (id, name, title, panel) {
+    	return this.view.regions.center.addTab(id, name, title, panel);
+    },
+
+    closeTab: function () {
+
+    },
+
+	//#endregion
+
+    init: function () {
+    	// 初始化对象。
+    	this.view = new Viewport(document.body);
+    	this.view.set(this.configs.view);
     }
 
 };
